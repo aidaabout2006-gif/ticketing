@@ -1,0 +1,55 @@
+services:
+  api-gateway:
+    build: ./api-gateway
+    container_name: api-gateway
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./api-gateway/.env
+    restart: unless-stopped
+
+  ticket-service:
+    build: ./ticket-service
+    container_name: ticket-service
+    ports:
+      - "3004:3004"
+    env_file:
+      - ./ticket-service/.env
+    restart: unless-stopped
+
+  category-service:
+    build: ./category-service
+    container_name: category-service
+    ports:
+      - "3001:3001"
+    env_file:
+      - ./category-service/.env
+    restart: unless-stopped
+
+  priority-service:
+    build: ./priority-service
+    container_name: priority-service
+    ports:
+      - "3002:3002"
+    env_file:
+      - ./priority-service/.env
+    restart: unless-stopped
+
+  status-service:
+    build: ./status-service
+    container_name: status-service
+    ports:
+      - "3003:3003"
+    env_file:
+      - ./status-service/.env
+    restart: unless-stopped
+
+
+  frontend:
+    build: ./ticketing-frontend
+    container_name: ticketing-frontend
+    ports:
+      - "5173:5173"
+    stdin_open: true
+    tty: true
+    restart: unless-stopped

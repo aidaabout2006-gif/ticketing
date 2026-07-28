@@ -1,0 +1,8 @@
+export enum CategoryType {
+  SUBJECT = 'SUBJECT',
+  DEPARTMENT = 'DEPARTMENT',
+  PRODUCT = 'PRODUCT',
+  SERVICE = 'SERVICE',
+  PROJECT = 'PROJECT',
+  CUSTOMER = 'CUSTOMER',
+}
